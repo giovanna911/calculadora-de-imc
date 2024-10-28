@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript para iniciantes</title>
+
+  <style>
+    * {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      transition: all ease .4s;
+    }
+
+    main {
+      background-color: #efefef;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      text-align: center;
+      background-color: #fff;
+      padding: .4rem;
+      border-radius: .4rem;
+      border: 1px solid #ccc;
+      overflow: hidden;
+      min-width: 400px;
+    }
+
+    h1 {
+      background-color: #069;
+      color: #fff;
+      font-weight: 100;
+      margin: -.4rem -.4rem .8rem -.4rem;
+    }
+
+    div {
+      margin-bottom: .4rem;
+    }
+
+    label {
+      display: block;
+      font-size: .9em;
+    }
+
+    input {
+      padding: .4rem .8rem;
+      border-radius: .4rem;
+      border: 1px solid #aaa;
+      font-style: italic;
+      color: #333;
+    }
+
+    button {
+      background-color: #096;
+      color: #fff;
+      border: none;
+      padding: .4rem .8rem;
+      cursor: pointer;
+      border-radius: .4rem;
+      margin: .4rem 0;
+    }
+
+    button:hover {
+      background-color: #069;
+    }
+
+    .mensagem {
+      background-color: yellowgreen;
+      padding: .4rem .8rem;
+      border-radius: .4rem;
+      font-size: .9em;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+    <form>
+      <h1>Calculadora de IMC</h1>
+
+      <div>
+        <label for="peso">Peso:</label>
+        <input type="number" name="peso" id="peso">
+      </div>
+
+      <div>
+        <label for="altura">Altura:</label>
+        <input type="number" name="altura" id="altura">
+      </div>
+
+      <div>
+        <button type="button" onclick="calcularIMC()">
+          Calcular IMC
+        </button>
+      </div>
+
+      <div class="mensagem" id="mensagem">
+        Seu resultado aparecerá aqui
+      </div>
+    </form>
+  </main>
+
+  <script>
+
+    function calcularIMC() {
+      const peso = document.getElementById("peso");
+      const altura = document.getElementById("altura");
+      const divMensagem = document.getElementById("mensagem");
+
+      const imc = peso.value / (altura.value * altura.value);
+
+      if (imc <= 18.5) {
+        divMensagem.innerHTML = "Abaixo do peso";
+      } else if (imc > 18.5 && imc < 25) {
+        divMensagem.innerHTML = "Peso normal";
+      } else if (imc >= 25 && imc < 30) {
+        divMensagem.innerHTML = "Sobrepeso";
+      } else {
+        divMensagem.innerHTML = "Obesidade";
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>
